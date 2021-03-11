@@ -1,0 +1,19 @@
+version: '3.7'
+
+volumes:
+    logs:
+        driver: local
+
+services:
+    php:
+        build:
+            context: .
+        image: php:7.2.11-fpm
+        container_name: php7.2
+        working_dir: /var/www
+        ports:
+            - "9000:9000"
+        volumes:
+            - .:/var/www
+            - logs:/var/www/logs
+        command: php -S 0.0.0.0:9000 
