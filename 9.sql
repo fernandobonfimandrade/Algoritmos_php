@@ -30,6 +30,7 @@ CREATE TABLE movie_director(
 CREATE TABLE movie_actors(
     movie_id INTEGER NOT NULL,
     actor_id INTEGER NOT NULL,
+    order_act INTEGER NOT NULL,
     CONSTRAINT FK_MOVIE_ID_ACTOR FOREIGN KEY (movie_id)
         REFERENCES movies (id)
         ON DELETE CASCADE
@@ -39,6 +40,8 @@ CREATE TABLE movie_actors(
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+
 
 
 /*
@@ -80,6 +83,14 @@ values (1,7),
 (6,5);
 
 */
+
+
+update movie_actors set order_act = rowN
+ FROM (select ROW_NUMBER() OVER(ORDER BY movie_id ASC) as rowN
+        from movie_actors
+        where  movie_id = 1 ) as mv
+where movie_actors.movie_id = 1
+    and movie_actors.actor_id = mv.actor_id
 
 
 SELECT actors.name 
