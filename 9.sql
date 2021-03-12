@@ -60,18 +60,18 @@ VALUES ("ATTACk ON TITAN","20150301"),("CORACAO DO MAR","20150601"),("PERDIDO EM
 ("CIDADE DE DEUS","20110504");
 
 
-INSERT INTO movie_actors (movie_id,actor_id)
-values (1,7),(1,4),
-(2,6),(2,8),(2,11),
-(3,1),(3,2),(3,3),(3,6),(3,8),
-(4,9),(4,5),
-(5,1),(5,2),(5,6),(5,8),
-(6,1),(6,8),(6,11),
-(7,7),(7,4),
-(8,6),(8,8),(8,11),
-(9,1),(9,2),(9,3),(9,6),(9,8),
-(10,9),(10,5),
-(11,1),(11,2),(11,6),(11,8),
+INSERT INTO movie_actors (movie_id,actor_id, order_act)
+values (1,7,1),(1,4,2),
+(2,6,1),(2,8,2),(2,11,3),
+(3,1,1),(3,2,2),(3,3,3),(3,6,4),(3,8,5),
+(4,9,1),(4,5,2),
+(5,1,1),(5,2,2),(5,6,3),(5,8,4),
+(6,1,1),(6,8,2),(6,11,3),
+(7,7,1),(7,4,2),
+(8,6,1),(8,8,2),(8,11,3),
+(9,1,1),(9,2,2),(9,3,3),(9,6,4),(9,8,5),
+(10,9,1),(10,5,2),
+(11,1,1),(11,2,2),(11,6,3),(11,8,4)
 
 
 INSERT INTO movie_director (movie_id,actor_id)
@@ -85,12 +85,7 @@ values (1,7),
 */
 
 
-update movie_actors set order_act = rowN
- FROM (select ROW_NUMBER() OVER(ORDER BY movie_id ASC) as rowN
-        from movie_actors
-        where  movie_id = 1 ) as mv
-where movie_actors.movie_id = 1
-    and movie_actors.actor_id = mv.actor_id
+delete  from movie_actors
 
 
 SELECT actors.name 
