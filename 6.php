@@ -3,7 +3,7 @@
 // gastei 2 horas para fazer.
 // exemplo de chamada 6.php?coord[]=0,0&coord[]=2,2&coord[]=2,0&coord[]=0,2&coord[]=1,0&coord[]=1,2&coord[]=6,0&coord[]=6,2
 
-// esse algoritimo so funciona para retangulos paralelos ao eixo x
+// esse algoritimo so funciona para retangulos com lado paralelo ao eixo x
 class Retangulo {
     public $a;
     public $b;

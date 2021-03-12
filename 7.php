@@ -3,7 +3,6 @@
 // gastei 4 horas para fazer.
 // exemplo de chamada 7.php?vertices=A;B;C;D;E;F;G&arestas=A,B;A,D;B,C;B,D;B,E;C,E;D,E;D,F;E,F;E,G;F,G&inicial=A&final=E
 
-// esse algoritimo so funciona para retangulos paralelos ao eixo x
 class Grafo {
     public $listaDeAdjavencia;
     public $caminhos;
